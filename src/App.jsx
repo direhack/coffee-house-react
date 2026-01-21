@@ -1,11 +1,13 @@
-import React from "react";
-import Header from "./Header";
+import { CartProvider } from "./context/CartContext";
+import Header from "./components/Header";
 
 const App = () => {
 	return (
-		<div>
-			<Header />
-		</div>
+		<CartProvider>
+			<div className="container">
+				<Header />
+			</div>
+		</CartProvider>
 	);
 };
 

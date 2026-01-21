@@ -1,0 +1,179 @@
+@use "../mixins/media" as *;
+@use "../mixins/mixins" as *;
+@use "../base/variables" as *;
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 100px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	.menu_cart {
+		// display: none;
+		// display: flex;
+		// justify-content: center;
+		// align-items: center;
+		.cart_button {
+			display: none;
+			margin-right: 10px;
+			&:hover {
+				cursor: pointer;
+			}
+			@include tablet {
+				display: none !important;
+				// position: absolute;
+				// right: 70px;
+				// top: 40px;
+			}
+			.total_discount {
+				text-decoration: line-through;
+				opacity: 0.5;
+			}
+		}
+	}
+	.burger {
+		position: relative;
+		width: 28px;
+		height: 28px;
+		display: none;
+		@include tablet {
+			display: block;
+		}
+		cursor: pointer;
+		i {
+			position: absolute;
+			inset: 0;
+			transition:
+				opacity 0.25s ease,
+				transform 1s ease;
+		}
+	}
+	.fa-bars {
+		opacity: 0;
+		pointer-events: auto;
+		@include tablet {
+			opacity: 1;
+			transform: rotate(0) scale(1);
+			@include hover-only {
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
+	}
+	nav {
+		@include tablet {
+			display: none;
+		}
+	}
+	.fa-xmark {
+		opacity: 0;
+		transform: rotate(-90deg) scale(0.5);
+		pointer-events: none;
+		@include hover-only {
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+	ul {
+		display: flex;
+		gap: 30px;
+	}
+	.logo {
+		width: 100px;
+		@include hover-only {
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+	a {
+		color: $dark_text;
+		border-bottom: 2px solid transparent;
+		@include link_button;
+		@include hover-only {
+			&:hover {
+				border-bottom-color: $dark_text;
+			}
+		}
+	}
+	#logo {
+		border-bottom: none;
+	}
+	.fa-cart-shopping {
+		&:hover {
+			cursor: pointer;
+		}
+	}
+	.menu_link {
+		cursor: pointer;
+		@include tablet {
+			display: none;
+		}
+	}
+}
+
+.burger-menu {
+	position: absolute;
+	transition: 1s;
+	transform: translateX(100%);
+	background-color: #e1d4c9;
+	width: 100%;
+	z-index: 10;
+	ul {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+		li {
+			&:last-child {
+				margin-top: 30px;
+			}
+		}
+		.burger_menu_cart_button {
+			display: none;
+			.total_discount {
+				text-decoration: line-through;
+				opacity: 0.5;
+			}
+		}
+	}
+	a {
+		color: $dark_text;
+		@include burger-link;
+		border-bottom: 2px solid transparent;
+		@include hover-only {
+			&:hover {
+				border-bottom-color: $dark_text;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.burger-menu.is-open {
+	transform: translateX(0);
+	display: block;
+}
+
+header.menu-open .fa-bars {
+	opacity: 0;
+	transform: rotate(90deg) scale(0.5);
+	pointer-events: none;
+}
+
+header.menu-open .fa-xmark {
+	opacity: 1;
+	transform: rotate(0) scale(1);
+	pointer-events: auto;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
