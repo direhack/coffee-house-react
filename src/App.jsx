@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import FavoriteCoffee from "./components/FavoriteCoffee";
 import About from "./components/About";
 import MobileApp from "./components/MobileApp";
+import Footer from "./components/Footer";
 
 const App = () => {
 	return (
@@ -15,6 +16,7 @@ const App = () => {
 					<FavoriteCoffee />
 					<About />
 					<MobileApp />
+					<Footer />
 				</main>
 			</div>
 		</CartProvider>

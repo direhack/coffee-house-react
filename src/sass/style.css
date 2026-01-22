@@ -712,3 +712,147 @@ a {
 .mob_app .second_block img {
   width: 100%;
 }
+
+.contact {
+  background-color: #665f55;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 40px;
+  border-radius: 30px;
+}
+@media (max-width: 666px) {
+  .contact {
+    height: 500px;
+  }
+}
+@media (max-width: 475px) {
+  .contact {
+    height: 700px;
+  }
+}
+@media (max-width: 380px) {
+  .contact {
+    height: 526px;
+  }
+}
+@media (max-width: 475px) {
+  .contact {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 655px) {
+  .contact .first_block {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media (max-width: 475px) {
+  .contact .first_block {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.contact .first_block h2 {
+  color: #e1d4c9;
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+@media only screen and (max-width: 380px) {
+  .contact .first_block h2 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+}
+.contact .first_block h2 span {
+  color: #b0907a;
+  font-style: italic;
+}
+.contact .first_block .socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+@media (max-width: 655px) {
+  .contact .first_block .socials {
+    align-self: center;
+  }
+}
+.contact .first_block .socials .fa-twitter,
+.contact .first_block .socials .fa-instagram,
+.contact .first_block .socials .fa-facebook-f {
+  border: 1px solid #c1b6ad;
+  border-radius: 50%;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e1d4c9;
+}
+@media (hover: hover) {
+  .contact .first_block .socials .fa-twitter:hover,
+  .contact .first_block .socials .fa-instagram:hover,
+  .contact .first_block .socials .fa-facebook-f:hover {
+    color: #403f3d;
+    background-color: #e1d4c9;
+    cursor: pointer;
+  }
+}
+.contact .location,
+.contact .phone,
+.contact .schedule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid transparent;
+}
+@media (hover: hover) {
+  .contact .location:hover,
+  .contact .phone:hover,
+  .contact .schedule:hover {
+    cursor: pointer;
+    border-bottom-color: #e1d4c9;
+  }
+}
+.contact .location .fa-location-dot,
+.contact .location .fa-phone,
+.contact .location .fa-clock,
+.contact .phone .fa-location-dot,
+.contact .phone .fa-phone,
+.contact .phone .fa-clock,
+.contact .schedule .fa-location-dot,
+.contact .schedule .fa-phone,
+.contact .schedule .fa-clock {
+  color: #e1d4c9;
+}
+.contact .location a,
+.contact .phone a,
+.contact .schedule a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+@media (max-width: 475px) {
+  .contact .second_block {
+    width: 90%;
+  }
+}
+.contact .second_block p {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: #e1d4c9;
+  display: flex;
+}
+.contact .second_block .contact-us {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}

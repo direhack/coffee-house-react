@@ -1,0 +1,120 @@
+@use "../mixins/media" as *;
+@use "../mixins/mixins" as *;
+@use "../base/variables" as *;
+
+.contact {
+	background-color: $container;
+	height: 450px;
+	@media (max-width: 666px) {
+		height: 500px;
+	}
+	@media (max-width: 475px) {
+		height: 700px;
+	}
+	@media (max-width: 380px) {
+		height: 526px;
+	}
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin-bottom: 40px;
+	border-radius: 30px;
+	@include tablet {
+	}
+	@media (max-width: 475px) {
+		flex-wrap: wrap;
+	}
+	.first_block {
+		@media (max-width: 655px) {
+			display: flex;
+			flex-direction: column;
+		}
+		@media (max-width: 475px) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		h2 {
+			color: $light_text;
+			@include heading-2;
+			@include mobile {
+				@include heading-2-mobile;
+			}
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			span {
+				color: $accent_text;
+				@include accent;
+			}
+		}
+		.socials {
+			display: flex;
+			justify-content: center;
+			gap: 10px;
+			@media (max-width: 655px) {
+				align-self: center;
+			}
+			.fa-twitter,
+			.fa-instagram,
+			.fa-facebook-f {
+				border: 1px solid $light_border;
+				border-radius: 50%;
+				padding: 15px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: $light_text;
+				@include hover-only {
+					&:hover {
+						color: $dark_text;
+						background-color: $light_text;
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+
+	.location,
+	.phone,
+	.schedule {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		border-bottom: 1px solid transparent;
+		@include hover-only {
+			&:hover {
+				cursor: pointer;
+				border-bottom-color: $light_text;
+			}
+		}
+
+		.fa-location-dot,
+		.fa-phone,
+		.fa-clock {
+			color: $light_text;
+		}
+		a {
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+	}
+	.second_block {
+		// display: flex;
+		// flex-direction: column;
+		@media (max-width: 475px) {
+			width: 90%;
+			// justify-self: flex-start;
+		}
+		p {
+			@include link_button;
+			color: $light_text;
+			display: flex;
+		}
+		.contact-us {
+			@include heading-3;
+		}
+	}
+}
