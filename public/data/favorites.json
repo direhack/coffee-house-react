@@ -1,0 +1,23 @@
+[
+	{
+		"id:": 1,
+		"name": "Espresso",
+		"description": "Rich and bold single shot",
+		"price": "4.50",
+		"image": "../src/assets/coffee-slider-1.png"
+	},
+	{
+		"id": 2,
+		"name": "Cappuccino",
+		"description": "Velvety milk foam perfection",
+		"price": "5.20",
+		"image": "../src/assets/coffee-slider-2.png"
+	},
+	{
+		"id": 3,
+		"name": "Latte",
+		"description": "Smooth and creamy classic",
+		"price": "5.00",
+		"image": "../src/assets/coffee-slider-3.png"
+	}
+]

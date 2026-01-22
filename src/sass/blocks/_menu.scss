@@ -1,0 +1,132 @@
+@use "../mixins/media" as *;
+@use "../mixins/mixins" as *;
+@use "../base/variables" as *;
+
+.menu {
+	h1 {
+		@include heading-1;
+		@include mobile {
+			@include heading-1-mobile;
+		}
+		color: $dark_text;
+		span {
+			color: $accent_text;
+			@include accent;
+		}
+	}
+	.fetch-error {
+		font-size: 40px;
+		color: #403f3d;
+		font-weight: 600;
+		margin-top: 200px;
+		margin-bottom: 200px;
+	}
+	.second-loader {
+		font-size: 40px;
+		color: #403f3d;
+		font-weight: 600;
+		margin-bottom: 200px;
+		margin-top: 200px;
+	}
+	.buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 16px;
+		.button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid $light_border;
+			border-radius: 25px;
+			color: $dark_text;
+			width: 100px;
+			gap: 5px;
+			@include hover-only {
+				&:hover {
+					background-color: $container;
+					cursor: pointer;
+					color: $light_text;
+					img {
+						background-color: $light_text;
+					}
+				}
+			}
+		}
+		img {
+			border-radius: 100%;
+			background-color: $light_border;
+			width: 20px;
+			padding: 5px;
+		}
+	}
+	.content {
+		display: flex;
+		gap: 40px;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: 40px;
+		margin-bottom: 100px;
+		.block {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 20%;
+			@media (max-width: 1200px) {
+				width: 30%;
+			}
+			@media (max-width: 1000px) {
+				width: 40%;
+			}
+			@media (max-width: 700px) {
+				width: 90%;
+			}
+			text-align: left;
+			border: 1px solid $light_border;
+			border-radius: 24px;
+			transition: 1s;
+			@include hover-only {
+				&:hover {
+					transform: scale(0.9);
+					cursor: pointer;
+				}
+			}
+			img {
+				width: 100%;
+				border-radius: 24px;
+				z-index: -1;
+			}
+			.info_block {
+				margin-left: 20px;
+				// display: flex;
+				// flex-wrap: wrap;
+				// flex-direction: column;
+				h3 {
+					@include heading-3;
+					color: $dark_text;
+				}
+				&:nth-child(2) {
+					@include medium;
+					color: $dark_text;
+				}
+				.prices_block {
+					display: flex;
+				}
+				.price {
+					@include heading-3;
+					color: $dark_text;
+				}
+				.discount_price {
+					@include heading-3;
+					color: $dark_text;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
+
+.clicked {
+	background-color: $container;
+	color: $light_text !important;
+}

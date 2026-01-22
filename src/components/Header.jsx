@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
+import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMugHot, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
+	const [isMenuActive, setIsMenuActive] = useState(false);
 	const { cartCount = 0, totalDiscount = 0 } = useCart() || {};
 
 	useEffect(() => {
@@ -19,40 +24,77 @@ const Header = () => {
 	}, [isMenuOpen]);
 
 	const toggleMenu = () => {
-		setIsMenuOpen((prev) => !prev);
+		const newOpenState = !isMenuOpen;
+		setIsMenuOpen(newOpenState);
+		if (newOpenState) {
+			document.body.classList.add("no-scroll");
+		} else {
+			document.body.classList.remove("no-scroll");
+		}
 	};
 
 	const closeMenu = () => {
 		setIsMenuOpen(false);
+		document.body.classList.remove("no-scroll");
+	};
+
+	const handleLinkClick = (linkType) => {
+		if (linkType === "menu") {
+			setIsMenuActive(true);
+		} else {
+			setIsMenuActive(false);
+		}
+		closeMenu();
 	};
 
 	return (
 		<>
 			<header className={isMenuOpen ? "menu-open" : ""}>
-				<a id="logo" className="link" href="#">
+				<Link
+					id="logo"
+					className="link"
+					to="/"
+					onClick={() => handleLinkClick("/")}
+				>
 					<img src="./src/assets/logo.png" alt="logo" className="logo" />
-				</a>
+				</Link>
 				<nav>
 					<ul>
 						<li>
-							<a href="#fav_coffee" className="link" onClick={closeMenu}>
+							<HashLink
+								className="link"
+								to="/#fav_coffee"
+								onClick={() => handleLinkClick("fav")}
+							>
 								Favorite coffee
-							</a>
+							</HashLink>
 						</li>
 						<li>
-							<a href="#about" className="link" onClick={closeMenu}>
+							<HashLink
+								className="link"
+								to="/#about"
+								onClick={() => handleLinkClick("about")}
+							>
 								About
-							</a>
+							</HashLink>
 						</li>
 						<li>
-							<a href="#mob_app" className="link" onClick={closeMenu}>
+							<HashLink
+								className="link"
+								to="/#mob_app"
+								onClick={() => handleLinkClick("mob_app")}
+							>
 								Mobile app
-							</a>
+							</HashLink>
 						</li>
 						<li>
-							<a href="#contact" className="link" onClick={closeMenu}>
+							<HashLink
+								className="link"
+								to="/#contact"
+								onClick={() => handleLinkClick("contact")}
+							>
 								Contact us
-							</a>
+							</HashLink>
 						</li>
 					</ul>
 				</nav>
@@ -64,13 +106,17 @@ const Header = () => {
 						<i className="fa-solid fa-cart-shopping"></i>
 						{cartCount > 0 && <span className="cart_number">{cartCount}</span>}
 					</a>
-					<a className="menu_link">
-						Menu <i className="fa-solid fa-mug-hot"></i>
-					</a>
+					<Link
+						className={`menu_link ${isMenuActive ? "active-menu" : ""}`}
+						to="/menu"
+						onClick={() => handleLinkClick("menu")}
+					>
+						Menu <FontAwesomeIcon icon={faMugHot} />
+					</Link>
 				</div>
 				<div className="burger" id="burger" onClick={toggleMenu}>
-					<i className="fa-solid fa-bars"></i>
-					<i className="fa-solid fa-xmark"></i>
+					<FontAwesomeIcon icon={faBars} />
+					<FontAwesomeIcon icon={faXmark} />
 				</div>
 			</header>
 
@@ -78,41 +124,45 @@ const Header = () => {
 				<nav>
 					<ul>
 						<li>
-							<a
-								href="#fav_coffee"
+							<HashLink
+								to="/#fav_coffee"
 								className="burger_menu_link"
 								onClick={closeMenu}
 							>
 								Favorite coffee
-							</a>
+							</HashLink>
 						</li>
 						<li>
-							<a href="#about" className="burger_menu_link" onClick={closeMenu}>
+							<HashLink
+								to="/#about"
+								className="burger_menu_link"
+								onClick={closeMenu}
+							>
 								About
-							</a>
+							</HashLink>
 						</li>
 						<li>
-							<a
-								href="#mob_app"
+							<HashLink
+								to="/#mob_app"
 								className="burger_menu_link"
 								onClick={closeMenu}
 							>
 								Mobile app
-							</a>
+							</HashLink>
 						</li>
 						<li>
-							<a
-								href="#contact"
+							<HashLink
+								to="#contact"
 								className="burger_menu_link"
 								onClick={closeMenu}
 							>
 								Contact us
-							</a>
+							</HashLink>
 						</li>
 						<li>
-							<a className="burger_menu_link" href="#" onClick={closeMenu}>
-								Menu <i className="fa-solid fa-mug-hot"></i>
-							</a>
+							<Link className="burger_menu_link" to="/menu" onClick={closeMenu}>
+								Menu <FontAwesomeIcon icon={faMugHot} />
+							</Link>
 						</li>
 						<li className="burger_menu_cart_button">
 							<a
