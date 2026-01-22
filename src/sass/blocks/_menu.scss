@@ -42,6 +42,7 @@
 			color: $dark_text;
 			width: 100px;
 			gap: 5px;
+			background-color: $body;
 			@include hover-only {
 				&:hover {
 					background-color: $container;
@@ -127,6 +128,6 @@
 }
 
 .clicked {
-	background-color: $container;
+	background-color: $container !important;
 	color: $light_text !important;
 }

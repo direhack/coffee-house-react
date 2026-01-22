@@ -6,10 +6,14 @@ import {
 	faCakeCandles,
 } from "@fortawesome/free-solid-svg-icons";
 import { getProductImage } from "../utils/getProductImage";
+import Modal from "./Modal";
 
 const Menu = () => {
 	const [category, setCategory] = useState("coffee");
 	const [products, setProducts] = useState([]);
+	const [selectedProduct, setSelectedProduct] = useState(null);
+	const [selectedIndex, setSelectedIndex] = useState(null);
+
 	useEffect(() => {
 		const fetchProducts = async () => {
 			try {
@@ -27,6 +31,14 @@ const Menu = () => {
 		};
 		fetchProducts();
 	}, [category]);
+
+	useEffect(() => {
+		if (selectedProduct) {
+			document.body.classList.add("modal-open");
+		} else {
+			document.body.classList.remove("modal-open");
+		}
+	});
 
 	return (
 		<div className="menu">
@@ -63,7 +75,14 @@ const Menu = () => {
 
 			<div className="content">
 				{products.map((product, index) => (
-					<div key={index} className="block">
+					<div
+						key={index}
+						className="block"
+						onClick={() => {
+							setSelectedProduct(product);
+							setSelectedIndex(index);
+						}}
+					>
 						<img src={getProductImage(product, index)} alt={product.name} />
 						<div className="info_block">
 							<h3>{product.name}</h3>
@@ -87,6 +106,16 @@ const Menu = () => {
 					</div>
 				))}
 			</div>
+			{selectedProduct && (
+				<Modal
+					product={selectedProduct}
+					index={selectedIndex}
+					onClose={() => {
+						setSelectedProduct(null);
+						setSelectedIndex(null);
+					}}
+				/>
+			)}
 		</div>
 	);
 };
