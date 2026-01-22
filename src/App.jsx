@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import FavoriteCoffee from "./components/FavoriteCoffee";
 import About from "./components/About";
+import MobileApp from "./components/MobileApp";
 
 const App = () => {
 	return (
@@ -13,6 +14,7 @@ const App = () => {
 					<Hero />
 					<FavoriteCoffee />
 					<About />
+					<MobileApp />
 				</main>
 			</div>
 		</CartProvider>

@@ -579,3 +579,136 @@ a {
   grid-column: 2;
   grid-row: span 3;
 }
+
+.mob_app {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 630px;
+  gap: 50px;
+}
+@media only screen and (max-width: 768px) {
+  .mob_app {
+    flex-direction: column;
+    margin-bottom: 400px;
+  }
+}
+@media only screen and (max-width: 380px) {
+  .mob_app {
+    margin-bottom: 200px;
+  }
+}
+.mob_app .first_block {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+@media only screen and (max-width: 768px) {
+  .mob_app .first_block {
+    width: 100%;
+  }
+}
+.mob_app .first_block h2 {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+  text-align: left;
+  margin: 0;
+}
+@media only screen and (max-width: 380px) {
+  .mob_app .first_block h2 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+}
+.mob_app .first_block h2 .download {
+  color: #b0907a;
+  font-style: italic;
+}
+.mob_app .first_block p {
+  text-align: left;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #403f3d;
+}
+.mob_app .first_block .buttons {
+  display: flex;
+  gap: 20px;
+}
+@media (max-width: 475px) {
+  .mob_app .first_block .buttons {
+    flex-wrap: wrap;
+  }
+}
+.mob_app .first_block .buttons .app_store,
+.mob_app .first_block .buttons .google_play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  min-width: 220px;
+  border: 1px solid #665f55;
+  border-radius: 999px;
+  color: #403f3d;
+}
+.mob_app .first_block .buttons .app_store .fa-brands,
+.mob_app .first_block .buttons .google_play .fa-brands {
+  font-size: 28px;
+  line-height: 1;
+  color: #403f3d;
+  margin-left: 20px;
+}
+.mob_app .first_block .buttons .app_store .small-block,
+.mob_app .first_block .buttons .google_play .small-block {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  margin-left: 10px;
+}
+.mob_app .first_block .buttons .app_store .small-block p,
+.mob_app .first_block .buttons .google_play .small-block p {
+  margin: 0;
+}
+.mob_app .first_block .buttons .app_store .small-block p:first-child,
+.mob_app .first_block .buttons .google_play .small-block p:first-child {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 140%;
+  color: #403f3d;
+}
+.mob_app .first_block .buttons .app_store .small-block p:last-child,
+.mob_app .first_block .buttons .google_play .small-block p:last-child {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  color: #403f3d;
+}
+@media (hover: hover) {
+  .mob_app .first_block .buttons .app_store:hover,
+  .mob_app .first_block .buttons .google_play:hover {
+    background: #665f55;
+    cursor: pointer;
+  }
+  .mob_app .first_block .buttons .app_store:hover p:first-child,
+  .mob_app .first_block .buttons .app_store:hover p:last-child,
+  .mob_app .first_block .buttons .app_store:hover .fa-brands,
+  .mob_app .first_block .buttons .google_play:hover p:first-child,
+  .mob_app .first_block .buttons .google_play:hover p:last-child,
+  .mob_app .first_block .buttons .google_play:hover .fa-brands {
+    color: #e1d4c9;
+  }
+}
+.mob_app .second_block {
+  width: 40%;
+}
+@media only screen and (max-width: 768px) {
+  .mob_app .second_block {
+    width: 80%;
+  }
+}
+.mob_app .second_block img {
+  width: 100%;
+}
